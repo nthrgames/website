@@ -1,30 +1,325 @@
 .App {
-  background-color: #1E1E1E;
-  width: 100vw;
-  height: 100vh;
-  text-align: center;
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.App-Side-Left {
+  overflow: auto;
+  position: absolute;
+}
+
+.App-Side-Right {
+  overflow: hidden;
+}
+
+.App-About .App-Side-Left {
+  background-color: #19265B;
+}
+
+.App-About .App-Side-Right {
+  background-color: #719EDB;
+}
+
+.App-About .App-Nav-Item-Active {
+  color: #19265B;
+}
+
+.App-About .Left-Page {
+  color: #5CD6B8;
+}
+
+.App-About .Content-Subtitle {
+  color: #5CD6B8;
+}
+
+.App-Raid .App-Side-Left {
+  background-color: #1B2A42;
+}
+
+.App-Raid .App-Side-Right {
+  background-color: #12BECA;
+}
+
+.App-Raid .App-Nav-Item-Active {
+  color: #1B2A42;
+}
+
+.App-Raid .Left-Page {
+  color: #12BECA;
+}
+
+.App-Raid .Content-Subtitle {
+  color: #12BECA;
+}
+
+.App-Raid .Stat-Icon {
+  color: #12BECA;
+}
+
+.App-Raid .Email {
+  background-color: #1B2A42;
+}
+
+.App-Raid .Email-Title {
+  color: #A37950;
+}
+
+.App-Raid .Email-Button {
+  background-color: #A37950;
+  color: #1B2A42;
+}
+
+.App-Seven-Sails .App-Side-Left {
+  background-color: #123153;
+}
+
+.App-Seven-Sails .App-Side-Right {
+  background-color: #85A5C4;
+}
+
+.App-Seven-Sails .App-Nav-Item-Active {
+  color: #123153;
+}
+
+.App-Seven-Sails .Left-Page {
+  color: #FEAD6F;
+}
+
+.App-Seven-Sails .Content-Subtitle {
+  color: #FEAD6F;
+}
+
+.App-Seven-Sails .Stat-Icon {
+  color: #FEAD6F;
+}
+
+.App-Seven-Sails .Email {
+  background-color: #123153;
+}
+
+.App-Seven-Sails .Email-Title {
+  color: #85A5C4;
+}
+
+.App-Seven-Sails .Email-Button {
+  background-color: #85A5C4;
+  color: #123153;
+}
+
+.App-Side {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  height: 100%;
+  width: 50vw;
+  transition: background-color 0.4s ease-in;
+}
+
+.App-Header {
+  position: fixed;
+  top: 0;
+  left: 50vw;
+  height: 100px;
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.App-Nether-Logo {
+  margin-left: 20px;
+  height: 60px;
+}
+
+.App-Nav {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.App-Nav-Item {
+  margin-left: 40px;
+  font-size: 18px;
+  font-family: "Baloo Chettan";
+  color: white;
+  transition: opacity 0.4s ease-in, color 0.4s ease-in;
+  opacity: 0.8;
+}
+
+.App-Nav-Item-Active {
+  color: #1B2A42;
+  opacity: 1;
+}
+
+.App-Nav-Item:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.Instagram {
+  margin-left: 40px;
+  font-size: 30px;
+  font-family: "Baloo Chettan";
+  color: white;
+  transition: opacity 0.4s ease-in;
+  opacity: 0.8;
+}
+
+.Instagram:hover {
+  opacity: 1;
+}
+
+.Left {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+}
+
+.Left-Logo {
+  width: 60px;
+  height: 60px;
+}
+
+.Left-Header {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Left-Page {
+  font-size: 18px;
+  font-family: "Baloo Chettan";
+  margin-right: 20px;
+  letter-spacing: 4px;
+  transition: color 0.4s ease-in;
+}
+
+.Left-Content {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 100px;
+  margin-bottom: 100px;
+}
+
+.Content-Title {
+  font-size: 72px;
+  font-family: "Baloo Chettan";
+  color: white;
+  margin-top: 60px;
+  transition: color 0.4s ease-in;
+}
+
+.Content-Subtitle {
+  font-style: italic;
+  transition: color 0.4s ease-in;
+}
+
+.Content-Body {
+  font-size: 14px;
+  color: white;
+  margin-top: 30px;
+  font-weight: 300;
+  line-height: 24px;
+  border-bottom: 1px solid white;
+  padding-bottom: 20px;
+  white-space: pre-line;
+}
+
+.Content-Stats {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.Content-Stat {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+  margin-right: 20px;
 }
 
-.App-logo {
-  width: 100px;
-  animation: App-logo-spin infinite 20s linear;
+.Stat-Icon {
+  color: white;
+  font-size: 20px;
+  margin-right: 10px;
+  transition: color 0.4s ease-in;
 }
 
-.App-title {
-  margin-top: 20px;
-  color: #FFFFFF;
+.Stat-Text {
+  color: white;
+  font-size: 12px;
   font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Email-Title {
+  margin-top: 40px;
+  font-style: italic;
+}
+
+.Email {
+  margin-top: 20px;
+  width: 300px;
+  height: 40px;
+  color: white;
+  border: 2px solid white;
+  font-size: 14px;
+  padding-left: 14px;
+  border-radius: 8px;
+  transition: border 0.4s ease-in, color 0.4s ease-in;
+}
+
+.Email:focus {
+  border-color: #12BECA;
+  outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 0.8; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+  opacity: 0.8; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+  opacity: 0.8; /* Firefox */
+}
+
+.Email-Button {
+  margin-top: 20px;
+  width: 100px;
+  height: 40px;
+  background-color: #A37950;
+  color: #1B2A42;
+  font-size: 14px;
+  font-family: "Baloo Chettan";
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #FFFFFF00;
+  transition: border 0.4s ease-in-out;
+}
+
+.Email-Button:hover {
+  cursor: pointer;
+  border: 2px solid white;
 }
