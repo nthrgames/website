@@ -14,10 +14,35 @@ import netherLogoSevenSailsMobile from './nether-logo-seven-sails-mobile.svg';
 import netherLogoAboutMobile from './nether-logo-about-mobile.svg';
 import instagram from './instagram.svg';
 
+import sevenSails01 from './seven-sails-01.png';
+import raid01 from './raid-01.png';
+
 const appNavigationItems = [
-  {key: 'raid', text: 'Raid'},
-  {key: 'seven-sails', text: 'Seven Sails'},
-  {key: 'about', text: 'About'},
+  {
+    key: 'raid',
+    text: 'Raid',
+    images: [
+      {
+        src: raid01,
+        alt: 'Raid Cards',
+      }
+    ],
+  },
+  {
+    key: 'seven-sails',
+    text: 'Seven Sails',
+    images: [
+      {
+        src: sevenSails01,
+        alt: 'Seven Sails Teaser',
+      }
+    ],
+  },
+  {
+    key: 'about',
+    text: 'About',
+    images: [],
+  },
 ];
 
 function LeftSide(nav, setNav) {
@@ -185,9 +210,17 @@ function LeftSide(nav, setNav) {
 };
 
 const RightSide = (nav) => {
+  const images = appNavigationItems
+    .find(i => i.key === nav)
+    .images.map((image, i) => {
+      return (
+        <img key={i} src={image.src} className="Image-Gallery" alt={image.alt} />
+      );
+    });
+
   return (
     <div className="Right">
-
+      {images}
     </div>
   );
 };

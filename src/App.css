@@ -123,6 +123,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  z-index: 100;
 }
 
 .App-Nether-Logo {
@@ -176,6 +177,19 @@
   opacity: 1;
 }
 
+.Right {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.Image-Gallery {
+  position: fixed;
+  width: 52vw;
+  bottom: 0;
+}
+
 .Left {
   display: flex;
   flex: 1;
@@ -185,8 +199,8 @@
 }
 
 .Left-Logo {
-  width: 60px;
-  height: 60px;
+  width: 120px;
+  height: 120px;
 }
 
 .Left-Header {
@@ -232,7 +246,6 @@
   margin-top: 30px;
   font-weight: 300;
   line-height: 24px;
-  border-bottom: 1px solid white;
   padding-bottom: 20px;
   white-space: pre-line;
   min-width: 300px;
@@ -398,6 +411,8 @@
     position: absolute;
     bottom: 20px;
     left: 20px;
+    width: 120px;
+    height: 120px;
   }
 
   .App-Raid .Menu, .App-Raid .Menu-Container {
