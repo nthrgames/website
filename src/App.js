@@ -209,12 +209,12 @@ function LeftSide(nav, setNav) {
   );
 };
 
-const RightSide = (nav) => {
+const RightSide = (nav, isMobile) => {
   const images = appNavigationItems
     .find(i => i.key === nav)
     .images.map((image, i) => {
       return (
-        <img key={i} src={image.src} className="Image-Gallery" alt={image.alt} />
+        <img key={i} src={image.src} className={isMobile ? 'Mobile-Image-Gallery' : 'Image-Gallery'} alt={image.alt} />
       );
     });
 
@@ -275,7 +275,7 @@ function App() {
       <div className="App-Side App-Side-Left">
         {LeftSide(nav, setNav)}
         <div className="Mobile-Images">
-          {RightSide(nav)}
+          {RightSide(nav, true)}
         </div>
       </div>
       <div className="App-Side App-Side-Right">
