@@ -136,7 +136,7 @@ function LeftSide(nav, setNav) {
         <div className="Content-Stat">
           <i className="material-icons Stat-Icon">timelapse</i>
           <span className="Stat-Text">
-          {`${time} mins`}
+          {`${time} minutes`}
           </span>
         </div>
         <div className="Content-Stat">
