@@ -317,6 +317,18 @@
   opacity: 0.8; /* Firefox */
 }
 
+.Email-Message {
+  height: 20px;
+  margin-top: 10px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.Email-Error {
+  color: red;
+}
+
 .Email-Button {
   margin-top: 20px;
   width: 100px;
@@ -331,11 +343,16 @@
   align-items: center;
   border: 2px solid #FFFFFF00;
   transition: border 0.4s ease-in-out;
+  z-index: 10000;
 }
 
 .Email-Button:hover {
   cursor: pointer;
   border: 2px solid white;
+}
+
+.Email-Sending:hover {
+  cursor: wait;
 }
 
 @media screen and (max-width: 1224px) {
@@ -434,7 +451,7 @@
 
   .Mobile-Image-Gallery {
     width: 110vw;
-    margin-top: -20vh;
+    margin-top: -10vh;
   }
 
   .App-Raid .Right {

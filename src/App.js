@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/functions';
+
 import { MenuButton, Menu, MenuItem } from './Menu';
 
 import './App.css';
@@ -16,6 +19,14 @@ import instagram from './instagram.svg';
 
 import sevenSails01 from './seven-sails-01.png';
 import raid01 from './raid-01.png';
+
+firebase.initializeApp({
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+});
+
+const emailSubscribe = firebase.functions().httpsCallable('emailSubscribe');
 
 const appNavigationItems = [
   {
@@ -48,6 +59,8 @@ const appNavigationItems = [
 function LeftSide(nav, setNav) {
   const [email, setEmail] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [message, setMessage] = useState(null);
 
   const menuItems = appNavigationItems.map(val => {
     return (
@@ -152,13 +165,34 @@ function LeftSide(nav, setNav) {
             setEmail(event.target.value);
           }}
         />
+        <div className={`Email-Message ${message && message.isError ? 'Email-Error' : ''}`}>
+          {message ? message.text : ''}
+        </div>
         <div
-          className="Email-Button"
-          onClick={() => {
-            console.log('Send Email For Raid');
+          className={`Email-Button ${isSending && 'Email-Sending'}`}
+          onClick={async () => {
+            if (!isSending) {
+              setMessage(null);
+              setIsSending(true);
+
+              try {
+                await emailSubscribe({ email });
+
+                setMessage({
+                  isError: false,
+                  text: 'email sent!',
+                });
+              } catch (err) {
+                setMessage({
+                  isError: true,
+                  text: err.message,
+                });
+              }
+              setIsSending(false);
+            }
           }}
         >
-          I'm Ready!
+          {isSending ? 'Sending...' : "I'm Ready!"}
         </div>
       </div>
     );
