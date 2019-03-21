@@ -10,10 +10,6 @@
   position: absolute;
 }
 
-.App-Side-Right {
-  overflow: hidden;
-}
-
 .App-About .App-Side-Left {
   background-color: #19265B;
 }
@@ -146,7 +142,7 @@
 .App-Nav-Item {
   margin-left: 40px;
   font-size: 18px;
-  font-family: "Baloo Chettan";
+  font-family: "Bree Serif";
   color: white;
   transition: opacity 0.4s ease-in, color 0.4s ease-in;
   opacity: 0.8;
@@ -165,7 +161,7 @@
 .Instagram {
   margin-left: 40px;
   font-size: 30px;
-  font-family: "Baloo Chettan";
+  font-family: "Bree Serif";
   color: white;
   transition: opacity 0.4s ease-in;
   opacity: 0.8;
@@ -197,7 +193,7 @@
 
 .Left-Page {
   font-size: 18px;
-  font-family: "Baloo Chettan";
+  font-family: "Bree Serif";
   margin-right: 20px;
   letter-spacing: 4px;
   transition: color 0.4s ease-in;
@@ -213,8 +209,8 @@
 }
 
 .Content-Title {
-  font-size: 72px;
-  font-family: "Baloo Chettan";
+  font-size: 60px;
+  font-family: "Bree Serif";
   color: white;
   margin-top: 60px;
   transition: color 0.4s ease-in;
@@ -234,6 +230,7 @@
   border-bottom: 1px solid white;
   padding-bottom: 20px;
   white-space: pre-line;
+  min-width: 300px;
 }
 
 .Content-Stats {
@@ -310,7 +307,7 @@
   background-color: #A37950;
   color: #1B2A42;
   font-size: 14px;
-  font-family: "Baloo Chettan";
+  font-family: "Bree Serif";
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -322,4 +319,101 @@
 .Email-Button:hover {
   cursor: pointer;
   border: 2px solid white;
+}
+
+@media screen and (max-width: 1224px) {
+  .App-Side-Right {
+    display: none;
+  }
+
+  .App-Header {
+    display: none;
+  }
+
+  .App-Side-Left {
+    width: 100vw;
+  }
+
+  .Left-Content {
+    flex: 1;
+    margin-left: 5vw;
+  }
+
+  .Menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: white;
+  }
+
+  .Menu-Container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    transition: height 0.4s ease;
+    z-index: 98;
+    overflow: hidden;
+  }
+
+  .Menu-List {
+    padding-top: 60px;
+  }
+
+  .Menu-Button {
+    height: 36px;
+    width: 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .Menu-Item {
+    color: white;
+    margin-left: 20px;
+    font-size: 36px;
+    font-family: "Bree Serif";
+  }
+
+  .Instagram {
+    margin-left: 20px;
+  }
+
+  .Mobile-Logo {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .App-Raid .Menu, .App-Raid .Menu-Container {
+    background-color: #1B2A42;
+  }
+
+  .App-Seven-Sails .Menu, .App-Seven-Sails .Menu-Container {
+    background-color: #123153;
+  }
+
+  .App-About .Menu, .App-About .Menu-Container {
+    background-color: #19265B;
+  }
+}
+
+@media screen and (min-width: 1224px) {
+  .App-Side-Right {
+    overflow: hidden;
+  }
+
+  .Menu {
+    display: none;
+  }
 }

@@ -1,14 +1,41 @@
 import React, { useState } from 'react';
+import { MenuButton, Menu, MenuItem } from './Menu';
+
 import './App.css';
+
 import netherLogoRaid from './nether-logo-raid.svg';
 import netherLogoSevenSails from './nether-logo-seven-sails.svg';
 import netherLogoAbout from './nether-logo-about.svg';
 import raidLogo from './raid-logo.svg';
 import sevenSailsLogo from './seven-sails-logo.svg';
 import aboutLogo from './about-logo.svg';
+import netherLogoRaidMobile from './nether-logo-raid-mobile.svg';
+import netherLogoSevenSailsMobile from './nether-logo-seven-sails-mobile.svg';
+import netherLogoAboutMobile from './nether-logo-about-mobile.svg';
 
-function LeftSide(nav) {
+const appNavigationItems = [
+  {key: 'raid', text: 'Raid'},
+  {key: 'seven-sails', text: 'Seven Sails'},
+  {key: 'about', text: 'About'},
+];
+
+function LeftSide(nav, setNav) {
   const [email, setEmail] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const menuItems = appNavigationItems.map(val => {
+    return (
+      <MenuItem
+        key={val.key}
+        onClick={() => {
+          setIsMenuOpen(false);
+          setNav(val.key);
+        }}
+      >
+        {val.text}
+      </MenuItem>
+    );
+  });
 
   let page;
   let title;
@@ -19,6 +46,7 @@ function LeftSide(nav) {
   let age;
   let logo;
   let notify;
+  let mobileLogo;
 
   if (nav === 'raid') {
     logo = raidLogo;
@@ -31,6 +59,7 @@ function LeftSide(nav) {
     time = '30';
     age = '+10';
     notify = 'Want to be notified when Raid launches?';
+    mobileLogo = netherLogoRaidMobile;
   } else if (nav === 'seven-sails') {
     logo = sevenSailsLogo;
     page = '02';
@@ -41,6 +70,7 @@ function LeftSide(nav) {
     time = '90';
     age = '+10';
     notify = 'Want to be notified when Seven Sails launches?';
+    mobileLogo = netherLogoSevenSailsMobile;
   } else {
     logo = aboutLogo;
     page = '03';
@@ -51,7 +81,8 @@ function LeftSide(nav) {
       \n In 2018, Brennen had a chance to do a race across the world called the Mongol Rally. It was a car endurance race that started in London, UK and ended in Ulaanbaatar, Mongolia. Since he had been working tirelessly on Seven Sails, he decided to wrap the car and get some attention while driving 20,000 miles across the eastern hemisphere.
       \n During the trip there was quite a lot of down time while being stuck at border crossings in Turkey and camping in the middle of Mongolia. Many games of Seven Sails were played, however, given the limited space inside the car, they needed an easy game to play while they drove ~10 hours a day. This became the origin story of the Raid card game.
       \n Raid was all about being a lightweight, competitive card game that could be played even on a road trip. Because of the more simplistic nature of the game and straightforward process to manufacture card games, Brennen and Blake decided to launch Raid as the first release from Nether Games.  They also hoped this would help grow an audience and following for Nether in preparation for launching their much bigger game, Seven Sails, and future releases.
-      \n Both brothers love creating games and enjoy competition as a way to connect with friends, family and fellow gaming fanatics. Nether Games embodies this spirit and they hope y’all enjoy their games as much as they enjoyed making them.`
+      \n Both brothers love creating games and enjoy competition as a way to connect with friends, family and fellow gaming fanatics. Nether Games embodies this spirit and they hope y’all enjoy their games as much as they enjoyed making them.`;
+    mobileLogo = netherLogoAboutMobile;
   }
 
   const renderStats = () => {
@@ -110,7 +141,27 @@ function LeftSide(nav) {
   return (
     <div className="Left">
       <div className="Left-Content">
-        <img src={logo} className="Left-Logo" alt="Raid Logo" />
+        <div>
+          <div className="Menu">
+            <MenuButton
+              open={isMenuOpen}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            />
+          </div>
+          <Menu open={isMenuOpen}>
+            <a
+              href="https://www.instagram.com/nthrgames/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="Instagram"
+            >
+              <i className="fab fa-instagram"></i>
+            </a>
+            {menuItems}
+            <img src={mobileLogo} className="Mobile-Logo" alt={`${title} Mobile Logo`} />
+          </Menu>
+        </div>
+        <img src={logo} className="Left-Logo" alt={`${title} Logo`} />
         <span className="Content-Title">
           {title}
         </span>
@@ -157,11 +208,7 @@ function App() {
     logoSource = netherLogoAbout;
   }
 
-  const renderNav = [
-    {key: 'raid', text: 'Raid'},
-    {key: 'seven-sails', text: 'Seven Sails'},
-    {key: 'about', text: 'About'},
-  ].map(({ key, text }) => {
+  const renderNav = appNavigationItems.map(({ key, text }) => {
     return (
       <span
         key={key}
@@ -192,7 +239,7 @@ function App() {
         </div>
       </div>
       <div className="App-Side App-Side-Left">
-        {LeftSide(nav)}
+        {LeftSide(nav, setNav)}
       </div>
       <div className="App-Side App-Side-Right">
         {RightSide(nav)}
