@@ -274,6 +274,9 @@ function App() {
       </div>
       <div className="App-Side App-Side-Left">
         {LeftSide(nav, setNav)}
+        <div className="Mobile-Images">
+          {RightSide(nav)}
+        </div>
       </div>
       <div className="App-Side App-Side-Right">
         {RightSide(nav)}

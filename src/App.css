@@ -107,6 +107,7 @@
 .App-Side {
   display: flex;
   flex: 1;
+  flex-direction: column;
   min-height: 100vh;
   height: 100%;
   width: 50vw;
@@ -426,6 +427,31 @@
   .App-About .Menu, .App-About .Menu-Container {
     background-color: #19265B;
   }
+
+  .Right {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  
+  .Image-Gallery {
+    position: initial;
+    width: 90vw;
+    margin-top: -20vh;
+  }
+
+  .App-Raid .Right {
+    background-color: #12BECA;
+  }
+
+  .App-Seven-Sails .Right {
+    background-color: #85A5C4;
+  }
+
+  .App-About .Right {
+    background-color: #719EDB;
+  }
 }
 
 @media screen and (min-width: 1224px) {
@@ -434,6 +460,10 @@
   }
 
   .Menu {
+    display: none;
+  }
+
+  .Mobile-Images {
     display: none;
   }
 }
