@@ -12,6 +12,7 @@ import aboutLogo from './about-logo.svg';
 import netherLogoRaidMobile from './nether-logo-raid-mobile.svg';
 import netherLogoSevenSailsMobile from './nether-logo-seven-sails-mobile.svg';
 import netherLogoAboutMobile from './nether-logo-about-mobile.svg';
+import instagram from './instagram.svg';
 
 const appNavigationItems = [
   {key: 'raid', text: 'Raid'},
@@ -155,7 +156,7 @@ function LeftSide(nav, setNav) {
               rel="noopener noreferrer"
               className="Instagram"
             >
-              <i className="fab fa-instagram"></i>
+              <img src={instagram} alt="Instagram Icon" />
             </a>
             {menuItems}
             <img src={mobileLogo} className="Mobile-Logo" alt={`${title} Mobile Logo`} />
@@ -234,7 +235,7 @@ function App() {
             rel="noopener noreferrer"
             className="Instagram"
           >
-            <i className="fab fa-instagram"></i>
+            <img src={instagram} alt="Instagram Icon" />
           </a>
         </div>
       </div>

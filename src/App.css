@@ -167,6 +167,11 @@
   opacity: 0.8;
 }
 
+.Instagram img {
+  width: 28px;
+  height: 28px;
+}
+
 .Instagram:hover {
   opacity: 1;
 }
