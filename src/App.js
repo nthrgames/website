@@ -56,11 +56,9 @@ const appNavigationItems = [
   },
 ];
 
-function LeftSide(nav, setNav) {
-  const [email, setEmail] = useState('');
+function LeftSide(nav, setNav, email, setEmail, message, setMessage) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSending, setIsSending] = useState(false);
-  const [message, setMessage] = useState(null);
 
   const menuItems = appNavigationItems.map(val => {
     return (
@@ -69,6 +67,7 @@ function LeftSide(nav, setNav) {
         onClick={() => {
           setIsMenuOpen(false);
           setNav(val.key);
+          setEmail(null);
         }}
       >
         {val.text}
@@ -176,7 +175,7 @@ function LeftSide(nav, setNav) {
               setIsSending(true);
 
               try {
-                await emailSubscribe({ email });
+                await emailSubscribe({ email, type: nav });
 
                 setMessage({
                   isError: false,
@@ -261,6 +260,8 @@ const RightSide = (nav, isMobile) => {
 
 function App() {
   const [nav, setNav] = useState('raid');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState(null);
 
   let appActive;
   let logoSource;
@@ -283,6 +284,8 @@ function App() {
         className={`App-Nav-Item ${nav === key && 'App-Nav-Item-Active'}`}
         onClick={() => {
           setNav(key);
+          setEmail('');
+          setMessage(null);
         }}
       >
         {text}
@@ -307,7 +310,7 @@ function App() {
         </div>
       </div>
       <div className="App-Side App-Side-Left">
-        {LeftSide(nav, setNav)}
+        {LeftSide(nav, setNav, email, setEmail, message, setMessage)}
         <div className="Mobile-Images">
           {RightSide(nav, true)}
         </div>
